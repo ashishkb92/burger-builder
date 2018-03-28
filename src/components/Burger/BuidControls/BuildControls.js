@@ -7,7 +7,7 @@ const controls = [
   { label: 'Salad', type: 'salad' },
   { label: 'Cheese', type: 'cheese' },
   { label: 'Bacon', type: 'bacon' },
-  { label: 'Meat', type: 'meat' }
+  { label: 'Meat', type: 'meat' },
 ];
 
 const buildControls = props => {
@@ -25,8 +25,12 @@ const buildControls = props => {
           removed={() => props.ingredientsRemoved(ctrl.type)}
         />
       ))}
-      <button className={classes.OrderButton} disabled={!props.purchasable} onClick={props.ordered} >
-        ORDER NOW
+      <button
+        className={classes.OrderButton}
+        disabled={!props.purchasable}
+        onClick={props.ordered}
+      >
+        {props.isAuth ? 'ORDER NOW' : 'SIGN UP TO ORDER'}
       </button>
     </div>
   );
